@@ -1,8 +1,8 @@
-import { NavLink} from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
+import React, { useState} from 'react';
 import axios from 'axios';
 import swal from '@sweetalert/with-react'
-import { Button, Container, Row, Col, Card, InputGroup, FormControl,Table,Tooltip,OverlayTrigger } from 'react-bootstrap';
+import { Button, Container, Row, Col, Card, InputGroup, FormControl} from 'react-bootstrap';
 import { motion } from "framer-motion";
 import "./Auth.css";
 
@@ -31,14 +31,14 @@ function handleSubmit(e){
 }
 
   return (
-	<motion.div
-  initial={{ scale: 0 }}
-  animate={{ rotate: 0, scale: 1 }}
-  transition={{
-    type: "spring",
-    stiffness: 300,
-    damping: 25,
-  }}>
+// 	<motion.div
+//   initial={{ scale: 0 }}
+//   animate={{ rotate: 0, scale: 1 }}
+//   transition={{
+//     type: "spring",
+//     stiffness: 300,
+//     damping: 25,
+//   }}>
     	<><br/><br/>
 			<Container>
 			<Row>
@@ -55,15 +55,13 @@ function handleSubmit(e){
 						<li></li>
 						<li></li>
 					</ul>
-					<Row style={{padding : "10%",zIndex: '9'}}>
+					<Row style={{padding : "0",zIndex: '9'}}>
 					
-						<Col xl>
-						<img src="https://t4.ftcdn.net/jpg/03/01/21/01/360_F_301210170_GpDh1OqTHHJuTXx5hfNVzl6mKZ5C0B27.jpg" width="25%"/>
+						<Col xl style={{paddingTop : "5%", paddingBottom : "5%"}}>
+						<img src="/images/Logo.png" width="25%"/>
 							<h1>Login To Your Account</h1><hr/>
 							
 							<Container style={{width : '90%'}}>
-						
-
 							<InputGroup className="mb-3">
 								<InputGroup.Text id="basic-addon1" style={{borderRadius : '0px'}}><i class="fa fa-envelope" aria-hidden="true"></i></InputGroup.Text>
 								<FormControl
@@ -81,6 +79,7 @@ function handleSubmit(e){
 							<InputGroup className="mb-3">
 								<InputGroup.Text id="basic-addon1" style={{borderRadius : '0px'}}><i class="fa fa-key" aria-hidden="true"></i></InputGroup.Text>
 								<FormControl
+								type="password"
 								placeholder="Password"
 								aria-label="Address"
 								aria-describedby="basic-addon1"
@@ -94,15 +93,13 @@ function handleSubmit(e){
 							</Container>
 
 						</Col>
-						<Col>
-							<img src='https://img.freepik.com/free-vector/business-man-described-showing-graph-stock-financial-trade-market-diagram-vector-illustration-flat-design_1150-39768.jpg?size=626&ext=jpg' width="100%" height="100%" />
+						<Col  style={{backgroundImage: `url(images/backgroudn.webp)`, backgroundSize : "cover"}}>
 						</Col>
 					</Row>
 				</Card>
 			</Row>
 			</Container><br/><br/>
     	</>
-		</motion.div>
   );
 }
 

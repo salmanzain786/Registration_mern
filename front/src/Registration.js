@@ -1,12 +1,13 @@
-import { NavLink} from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import { NavLink, useHistory} from 'react-router-dom';
+import React, { useState} from 'react';
 import axios from 'axios';
 import swal from '@sweetalert/with-react'
-import { Button, Container, Row, Col, Card, InputGroup, FormControl,Table,Tooltip,OverlayTrigger } from 'react-bootstrap';
+import { Button, Container, Row, Col, Card, InputGroup, FormControl} from 'react-bootstrap';
 import { motion } from "framer-motion";
 import "./Auth.css";
 
 function Registration() {
+	let history = useHistory();
 	const [firstName, set_firstName] = useState("");
 	const [lastName, set_lastName] = useState("");
 	const [email, set_email] = useState("");
@@ -29,6 +30,7 @@ function Registration() {
 		  .then(function (response) {
 			console.log(response);
 			if(response.data.status == 200){
+				history.push('/Login');
 				swal("Congratulations !", "Your Registration Has Been Succeeded", "success");
 			}
 			else{
@@ -42,33 +44,34 @@ function Registration() {
 
 
   return (
-	<motion.div
-  initial={{ scale: 0 }}
-  animate={{ rotate: 0, scale: 1 }}
-  transition={{
-    type: "spring",
-    stiffness: 300,
-    damping: 25,
-  }}>
+// 	<motion.div
+//   initial={{ scale: 0 }}
+//   animate={{ rotate: 0, scale: 1 }}
+//   transition={{
+//     type: "spring",
+//     stiffness: 300,
+//     damping: 25,
+//   }}>
 	  <><br/><br/>
 			<Container>
 			<Row>
 				<Card style={{ width: '100%', boxShadow: '5px 10px 10px 0px #c9c9c9' }}>
-					<ul class="floatingBoxes">
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-					<Row style={{padding : "10%",zIndex: '9'}}>
+						<ul class="floatingBoxes">
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					<Row style={{padding : "0",zIndex: '9'}} >
 						<Col xl>
-						<img src="https://t4.ftcdn.net/jpg/03/01/21/01/360_F_301210170_GpDh1OqTHHJuTXx5hfNVzl6mKZ5C0B27.jpg" width="25%"/>
+						
+						<img src="/images/Logo.png" width="25%"/>
 							<h1>Register Here</h1><hr/>
 							
 							<Container style={{width : '90%'}}>
@@ -140,6 +143,7 @@ function Registration() {
 							<InputGroup className="mb-3">
 								<InputGroup.Text id="basic-addon1" style={{borderRadius : '0px'}}><i class="fa fa-key" aria-hidden="true"></i></InputGroup.Text>
 								<FormControl
+								type="password"
 								placeholder="Password"
 								aria-label="Address"
 								name ="password"
@@ -153,6 +157,7 @@ function Registration() {
 							<InputGroup className="mb-3">
 								<InputGroup.Text id="basic-addon1" style={{borderRadius : '0px'}}><i class="fa fa-key" aria-hidden="true"></i></InputGroup.Text>
 								<FormControl
+								type="password"
 								placeholder="Confirm Password"
 								aria-label="Address"
 								name ="confirm_password"
@@ -170,8 +175,8 @@ function Registration() {
 							</Container>
 
 						</Col>
-						<Col>
-						<img src="/images/Registar_icon.jpg" width="100%" height="100%" />
+
+						<Col style={{backgroundImage: `url(images/backgroudn.webp)`, backgroundSize : "cover"}}>
 							{/* <img src={logo} width="100%" height="100%" /> */}
 						</Col>
 					</Row>
@@ -179,7 +184,6 @@ function Registration() {
 			</Row>
 			</Container><br/><br/>
     	</>
-			</motion.div>
   );
 }
 

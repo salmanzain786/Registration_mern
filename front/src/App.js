@@ -19,8 +19,8 @@ function App() {
           <Switch>
              <Route path="/" component={Home} exact/>
              <Route path="/Contact" component={Contact}/>
-                <Route path="/Registration" component={Registration}/>
-                <Route path="/Login" component={Login}/>
+              <Route path="/Registration" component={Registration}/>
+              <Route path="/Login" component={Login}/>
            </Switch>
           </AnimatePresence>
         </div> 
